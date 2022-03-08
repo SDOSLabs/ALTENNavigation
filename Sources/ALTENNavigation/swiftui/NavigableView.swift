@@ -66,7 +66,7 @@ extension View {
     /// - Returns: Un `AnyNavigableView` que envuelve `View`
     public func navigableView(_ navigationIdentifier: String, navigationActions: NavigationActions? = nil, style: ((UINavigationController) -> Void)? = nil) -> AnyNavigableView {
         if let navigationActions = navigationActions {
-            return AnyNavigableView(navigationIdentifier, view: self.environment(\.navigationActions, value), style: style)
+            return AnyNavigableView(navigationIdentifier, view: self.environment(\.navigationActions, navigationActions), style: style)
         } else {
             return AnyNavigableView(navigationIdentifier, view: self, style: style)
         }
